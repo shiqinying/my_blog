@@ -2,13 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b1f8791c-9575-47f8-9565-0862506721c3" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/my_blog/blog/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/blog/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/my_blog/blog/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/blog/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blog/comment/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/comment/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/comment/block.html" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/comment/block.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/config/blocks/sidebar_comments.html" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/config/blocks/sidebar_comments.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/my_blog/my_blog/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/my_blog/my_blog/settings/base.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -36,10 +31,10 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/my_blog/blog/views.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+            <state relative-caret-position="616">
+              <caret line="85" column="38" lean-forward="true" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
               <folding>
-                <element signature="e#0#35#0" expanded="true" />
+                <element signature="e#0#25#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -48,11 +43,29 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/my_blog/blog/models.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="149">
+            <state relative-caret-position="-563">
               <caret line="85" column="26" lean-forward="true" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
               <folding>
                 <element signature="e#0#14#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my_blog/blog/middelware/user_id.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="353">
+              <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/my_blog/my_blog/settings/base.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="227">
+              <caret line="45" selection-start-line="45" selection-end-line="45" />
             </state>
           </provider>
         </entry>
@@ -80,8 +93,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Python Script" />
         <option value="HTML File" />
+        <option value="Python Script" />
       </list>
     </option>
   </component>
@@ -111,7 +124,6 @@
         <option value="$PROJECT_DIR$/my_blog/my_blog/templates/config/blocks/sidebar_posts.html" />
         <option value="$PROJECT_DIR$/my_blog/my_blog/templates/config/blocks/sidebar_comments.html" />
         <option value="$PROJECT_DIR$/my_blog/my_blog/templates/blog/list.html" />
-        <option value="$PROJECT_DIR$/my_blog/my_blog/settings/base.py" />
         <option value="$PROJECT_DIR$/my_blog/my_blog/settings/develop.py" />
         <option value="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/list.html" />
         <option value="$PROJECT_DIR$/my_blog/config/views.py" />
@@ -128,6 +140,8 @@
         <option value="$PROJECT_DIR$/my_blog/blog/models.py" />
         <option value="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/base.html" />
         <option value="$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/templates/blog/detail.html" />
+        <option value="$PROJECT_DIR$/my_blog/blog/middelware/user_id.py" />
+        <option value="$PROJECT_DIR$/my_blog/my_blog/settings/base.py" />
         <option value="$PROJECT_DIR$/my_blog/blog/views.py" />
       </list>
     </option>
@@ -164,6 +178,13 @@
               <item name="my_blog" type="462c0819:PsiDirectoryNode" />
               <item name="my_blog" type="462c0819:PsiDirectoryNode" />
               <item name="blog" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="my_blog" type="b2602c69:ProjectViewProjectNode" />
+              <item name="my_blog" type="462c0819:PsiDirectoryNode" />
+              <item name="my_blog" type="462c0819:PsiDirectoryNode" />
+              <item name="blog" type="462c0819:PsiDirectoryNode" />
+              <item name="middelware" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="my_blog" type="b2602c69:ProjectViewProjectNode" />
@@ -386,24 +407,24 @@
       <option name="presentableId" value="Default" />
       <updated>1556784317322</updated>
       <workItem from="1556784318803" duration="17127000" />
-      <workItem from="1556848950926" duration="29229000" />
+      <workItem from="1556848950926" duration="31459000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="46356000" />
+    <option name="totallyTimeSpent" value="48586000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="24" width="1366" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.175" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.175" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="manage.py@my_blog" weight="0.32868218" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.16744186" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.16744186" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -574,13 +595,6 @@
     <entry file="file://$PROJECT_DIR$/my_blog/my_blog/themes/bootstrap/static/css/bootstrap.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/my_blog/my_blog/settings/base.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="227">
-          <caret line="60" column="25" lean-forward="true" selection-start-line="60" selection-start-column="25" selection-end-line="60" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/my_blog/my_blog/settings/develop.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="461">
@@ -706,7 +720,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/my_blog/blog/models.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="149">
+        <state relative-caret-position="-563">
           <caret line="85" column="26" lean-forward="true" selection-start-line="85" selection-start-column="26" selection-end-line="85" selection-end-column="26" />
           <folding>
             <element signature="e#0#14#0" expanded="true" />
@@ -714,12 +728,26 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/my_blog/my_blog/settings/base.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="227">
+          <caret line="45" selection-start-line="45" selection-end-line="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/my_blog/blog/middelware/user_id.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="353">
+          <caret line="23" column="18" selection-start-line="23" selection-start-column="18" selection-end-line="23" selection-end-column="18" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/my_blog/blog/views.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="70" column="23" selection-start-line="70" selection-start-column="23" selection-end-line="70" selection-end-column="23" />
+        <state relative-caret-position="616">
+          <caret line="85" column="38" lean-forward="true" selection-start-line="85" selection-start-column="38" selection-end-line="85" selection-end-column="38" />
           <folding>
-            <element signature="e#0#35#0" expanded="true" />
+            <element signature="e#0#25#0" expanded="true" />
           </folding>
         </state>
       </provider>
