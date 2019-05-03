@@ -20,8 +20,6 @@ class Link(models.Model):
     owner = models.ForeignKey(User, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
 
-    objects = models.Manager()  # 解决model.objects.filter代码无提示问题
-
     class Meta:
         verbose_name = verbose_name_plural = "友链"
 
@@ -55,8 +53,6 @@ class SideBar(models.Model):
     status = models.PositiveIntegerField(default=STATUS_SHOW, choices=STATUS_ITEMS, verbose_name="状态")
     owner = models.ForeignKey(User, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
-
-    objects = models.Manager()  # 解决model.objects.filter代码无提示问题
 
     class Meta:
         verbose_name = verbose_name_plural = "侧边栏"

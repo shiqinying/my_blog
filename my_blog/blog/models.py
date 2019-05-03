@@ -16,8 +16,6 @@ class Category(models.Model):
     owner = models.ForeignKey(User, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
 
-    objects = models.Manager() #解决model.objects.filter代码无提示问题
-
     class Meta:
         verbose_name = verbose_name_plural = '分类'
 
@@ -53,8 +51,6 @@ class Tag(models.Model):
     owner = models.ForeignKey(User, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
 
-    objects = models.Manager()  # 解决model.objects.filter代码无提示问题
-
     class Meta:
         verbose_name = verbose_name_plural = '标签'
 
@@ -82,8 +78,6 @@ class Post(models.Model):
     tag = models.ManyToManyField(Tag, verbose_name="标签")
     owner = models.ForeignKey(User, verbose_name="作者")
     created_time = models.DateTimeField(auto_now_add=True, verbose_name="创建时间")
-
-    objects = models.Manager()  # 解决model.objects.filter代码无提示问题
 
     class Meta:
         verbose_name = verbose_name_plural = "文章"
