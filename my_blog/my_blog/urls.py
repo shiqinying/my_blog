@@ -15,9 +15,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-from blog.views import (post_list, post_detail, links,
-                        PostDetailView, IndexView, CategoryView, TagView
-                        )
+from blog.views import (
+    PostDetailView, IndexView, CategoryView, TagView, SearchView, AuthorView
+)
 
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
@@ -26,5 +26,7 @@ urlpatterns = [
     url(r"^category/(?P<category_id>\d+)/$", CategoryView.as_view(), name='category-list'),
     url(r"^tag/(?P<tag_id>\d+)/$", TagView.as_view(), name='tag-list'),
     url(r"^post/(?P<post_id>\d+).html$", PostDetailView.as_view(), name='post-detail'),
-    url(r"^links/$", links, name='links'),
+    url(r"^search/$", SearchView.as_view(), name='search'),
+    url(r"^author/(?P<owner_id>\d+)/$", AuthorView.as_view(), name='author'),
+    # url(r"^links/$", links, name='links'),
 ]
