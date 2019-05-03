@@ -34,6 +34,9 @@ INSTALLED_APPS = [
     'comment',
     'my_blog',
 
+    'xadmin',
+    'crispy_forms',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -120,3 +123,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+
+
+XADMIN_TITLE = '史秦英的管理后台'
+XADMIN_FOOTER_TITLE = 'power by shiqinying.com'
