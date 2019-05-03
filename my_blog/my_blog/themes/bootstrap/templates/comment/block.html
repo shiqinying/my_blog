@@ -1,4 +1,4 @@
- <hr/>
+<hr/>
 <h1>访客评论</h1>
 <div class="comment">
     <form class="form-group" action="{% url 'comment' %}" method="POST">
@@ -11,14 +11,16 @@
     <!-- 评论列表 -->
     <ul class="list-group">
         {% for comment in comment_list %}
-        <li class="list-group-item">
-            <div class="nickname">
-                <a href="{{ comment.website }}">{{ comment.nickname }}</a> <span>{{ comment.created_time }}</span>
-            </div>
-            <div class="comment-content">
-                {{ comment.content }}
-            </div>
-        </li>
+            <li class="list-group-item">
+                <div class="nickname">
+                    <a href="{{ comment.website }}">{{ comment.nickname }}</a> <span>{{ comment.created_time }}</span>
+                </div>
+                <div class="comment-content">
+                    {% autoescape off %}
+                        {{ comment.content }}
+                    {% endautoescape %}
+                </div>
+            </li>
         {% endfor %}
     </ul>
 </div>
