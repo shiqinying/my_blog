@@ -15,7 +15,14 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from blog.views import post_list, post_detail, links
 
 urlpatterns = [
-    url(r'^admin/', admin.site.urls),
+    url(r"^admin/", admin.site.urls),
+
+    url(r"^$", post_list,name='index'),
+    url(r"^category/(?P<category_id>\d+)/$", post_list,name='category-list'),
+    url(r"^tag/(?P<tag_id>\d+)/$", post_list, name='tag-list'),
+    url(r"^post/(?P<post_id>\d+).html$", post_detail, name='post-detail'),
+    url(r"^links/$", links, name='links'),
 ]
