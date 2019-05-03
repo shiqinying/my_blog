@@ -14,6 +14,8 @@ Including another URLconf
     2. Add a URL to urlpatterns:  url(r'^blog/', include('blog.urls'))
 """
 from django.conf.urls import url, include
+from django.conf.urls.static import static
+from django.conf import settings
 from django.contrib import admin
 import xadmin
 from blog.views import (
@@ -47,6 +49,9 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    url(r'^category-autocomplete/$', CategoryAutocomplete.as_view(), name='category-autocomplete'),
-    url(r'^tag-autocomplete/$', TagAutocomplete.as_view(), name='tag-autocomplete'),
-]
+                   url(r'^category-autocomplete/$', CategoryAutocomplete.as_view(), name='category-autocomplete'),
+                   url(r'^tag-autocomplete/$', TagAutocomplete.as_view(), name='tag-autocomplete'),
+
+                   url(r'^ckeditor/', include('ckeditor_uploader.urls')),
+                   # 静态资源访问
+               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

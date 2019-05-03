@@ -41,6 +41,10 @@ INSTALLED_APPS = [
     'dal',
     'dal_select2',
 
+    # 富文本编辑器
+    'ckeditor',
+    'ckeditor_uploader',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -128,5 +132,20 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+# xadmin配置
 XADMIN_TITLE = '史秦英的管理后台'
 XADMIN_FOOTER_TITLE = 'power by shiqinying.com'
+
+# 富文本编辑器ckeditor配置
+CKEDITOR_CONFIGS = {
+    'default':{
+        'toolbar':'full',
+        'height':300,
+        'width':800,
+        'tabSpaces':4,
+        'extraPlugins':'codesnippet' #配置代码插件
+    }
+}
+MEDIA_URL = '/medai/'
+MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+CKEDITOR_UPLOAD_PATH = 'article_images'
