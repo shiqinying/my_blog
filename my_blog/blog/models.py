@@ -1,6 +1,7 @@
 import mistune
 from django.contrib.auth.models import User
 from django.db import models
+from django.core.cache import cache
 
 
 class Category(models.Model):
@@ -130,3 +131,4 @@ class Post(models.Model):
     @classmethod
     def hot_posts(cls):
         return cls.objects.filter(status=cls.STATUS_NORMAL).order_by('-pv').only('title', 'id')
+

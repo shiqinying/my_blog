@@ -17,6 +17,7 @@ from django.conf.urls import url, include
 from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
+from django.views.decorators.cache import cache_page
 import xadmin
 from rest_framework.routers import DefaultRouter
 from rest_framework.documentation import include_docs_urls
@@ -36,6 +37,7 @@ from blog.apis import PostViewSet, CategoryViewSet, TagViewSet
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
     url(r"xadmin/", include(xadmin.site.urls)),
+    # url(r"^$", cache_page(60*20)(IndexView.as_view()), name="index"),#缓存页面
     url(r"^$", IndexView.as_view(), name="index"),
     url(
         r"^category/(?P<category_id>\d+)/$",

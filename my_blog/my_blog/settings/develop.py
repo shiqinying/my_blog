@@ -69,9 +69,7 @@ INTERNAL_IPS = ['127.0.0.1']
 # ]
 
 
-#配置缓存系统
-'redis://127.0.0.1:6379/1'
-
+# 配置缓存系统
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',

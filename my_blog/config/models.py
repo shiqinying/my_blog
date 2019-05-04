@@ -63,8 +63,8 @@ class SideBar(models.Model):
 
     @classmethod
     def get_all(cls):
-        import time
-        time.sleep(10)
+        # import time
+        # time.sleep(10)
         return cls.objects.filter(status=cls.STATUS_SHOW)
 
     @property  # 有没有porperty装饰器不影响在html模板展示
