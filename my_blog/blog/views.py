@@ -11,6 +11,7 @@ from config.models import SideBar
 
 
 class CommonViewMixin:
+
     @silk_profile(name='get_context_data')
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
