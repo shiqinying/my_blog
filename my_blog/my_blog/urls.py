@@ -18,6 +18,8 @@ from django.conf.urls.static import static
 from django.conf import settings
 from django.contrib import admin
 import xadmin
+from rest_framework.routers import DefaultRouter
+from rest_framework.documentation import include_docs_urls
 from blog.views import (
     PostDetailView,
     IndexView,
@@ -29,11 +31,11 @@ from blog.views import (
 from config.views import LinkListView
 from comment.views import CommentView
 from .autocomplete import CategoryAutocomplete, TagAutocomplete
+from blog.apis import PostViewSet, CategoryViewSet, TagViewSet
 
 urlpatterns = [
     url(r"^admin/", admin.site.urls),
     url(r"xadmin/", include(xadmin.site.urls)),
-
     url(r"^$", IndexView.as_view(), name="index"),
     url(
         r"^category/(?P<category_id>\d+)/$",
@@ -49,9 +51,21 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-                   url(r'^category-autocomplete/$', CategoryAutocomplete.as_view(), name='category-autocomplete'),
-                   url(r'^tag-autocomplete/$', TagAutocomplete.as_view(), name='tag-autocomplete'),
+    url(
+        r"^category-autocomplete/$",
+        CategoryAutocomplete.as_view(),
+        name="category-autocomplete",
+    ),
+    url(r"^tag-autocomplete/$", TagAutocomplete.as_view(), name="tag-autocomplete"),
+    url(r"^ckeditor/", include("ckeditor_uploader.urls")),
+    # 静态资源访问
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-                   url(r'^ckeditor/', include('ckeditor_uploader.urls')),
-                   # 静态资源访问
-               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+router = DefaultRouter()
+router.register(r"post", PostViewSet, base_name="api-post")
+router.register(r"category", CategoryViewSet, base_name="api-category")
+router.register(r"tag", TagViewSet, base_name="api-tag")
+urlpatterns += [
+    url(r"^api/docs/", include_docs_urls(title="shiqinying's blog apis")),
+    url(r"^api/", include(router.urls)),
+]

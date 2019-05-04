@@ -45,6 +45,9 @@ INSTALLED_APPS = [
     'ckeditor',
     'ckeditor_uploader',
 
+    # restful api
+    'rest_framework',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -138,14 +141,21 @@ XADMIN_FOOTER_TITLE = 'power by shiqinying.com'
 
 # 富文本编辑器ckeditor配置
 CKEDITOR_CONFIGS = {
-    'default':{
-        'toolbar':'full',
-        'height':300,
-        'width':800,
-        'tabSpaces':4,
-        'extraPlugins':'codesnippet' #配置代码插件
+    'default': {
+        'toolbar': 'full',
+        'height': 300,
+        'width': 800,
+        'tabSpaces': 4,
+        'extraPlugins': 'codesnippet'  # 配置代码插件
     }
 }
 MEDIA_URL = '/medai/'
-MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = 'article_images'
+
+#django-rest-framework
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [],
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
+    'PAGE_SIZE': 2,
+}
