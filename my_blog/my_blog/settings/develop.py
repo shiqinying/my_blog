@@ -35,3 +35,27 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [
     os.path.join(BASE_DIR, 'themes', THEME, 'static')
 ]
+
+# 配置django-debug-toolbar
+INSTALLED_APPS += [
+    'debug_toolbar',
+    'pympler',
+    'debug_toolbar_line_profiler',
+
+    'silk',
+]
+
+MIDDLEWARE += [
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
+
+    'silk.middleware.SilkyMiddleware',
+]
+
+INTERNAL_IPS = ['127.0.0.1']
+# DEBUG_TOOLBAR_PANELS = [
+#     # 'djdt_flamegraph.FlamegraphPanel',#不可用
+#     'pympler.panels.MemoryPanel',
+#     'debug_toolbar_line_profiler.panel.ProfilingPanel'
+# ]
+
+#配置silk

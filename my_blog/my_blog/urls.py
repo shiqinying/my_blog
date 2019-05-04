@@ -51,15 +51,15 @@ urlpatterns = [
 ]
 
 urlpatterns += [
-    url(
-        r"^category-autocomplete/$",
-        CategoryAutocomplete.as_view(),
-        name="category-autocomplete",
-    ),
-    url(r"^tag-autocomplete/$", TagAutocomplete.as_view(), name="tag-autocomplete"),
-    url(r"^ckeditor/", include("ckeditor_uploader.urls")),
-    # 静态资源访问
-] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+                   url(
+                       r"^category-autocomplete/$",
+                       CategoryAutocomplete.as_view(),
+                       name="category-autocomplete",
+                   ),
+                   url(r"^tag-autocomplete/$", TagAutocomplete.as_view(), name="tag-autocomplete"),
+                   url(r"^ckeditor/", include("ckeditor_uploader.urls")),
+                   # 静态资源访问
+               ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
 router = DefaultRouter()
 router.register(r"post", PostViewSet, base_name="api-post")
@@ -69,3 +69,12 @@ urlpatterns += [
     url(r"^api/docs/", include_docs_urls(title="shiqinying's blog apis")),
     url(r"^api/", include(router.urls)),
 ]
+
+if settings.DEBUG:
+    import debug_toolbar
+
+    urlpatterns += [
+        url(r'^__debug__/', include(debug_toolbar.urls)),
+        url(r'^silk/', include('silk.urls', namespace='silk')),
+    ]
+
