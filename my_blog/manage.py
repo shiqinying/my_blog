@@ -5,7 +5,7 @@ import sys
 if __name__ == "__main__":
 
     #通过读取系统环境变量MY_BLOG_PROFILE来控制django加载不同的settings文件
-    profile = os.environ.get('MY_BLOG_PROFILE', 'develop')
+    profile = os.environ.get('MY_BLOG_PROFILE', 'product')
     os.environ.setdefault("DJANGO_SETTINGS_MODULE", "my_blog.settings.%s" % profile)
     try:
         from django.core.management import execute_from_command_line
