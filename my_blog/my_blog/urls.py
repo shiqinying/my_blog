@@ -35,8 +35,6 @@ from .autocomplete import CategoryAutocomplete, TagAutocomplete
 from blog.apis import PostViewSet, CategoryViewSet, TagViewSet
 
 urlpatterns = [
-    url(r"^admin/", admin.site.urls),
-    url(r"xadmin/", include(xadmin.site.urls)),
     # url(r"^$", cache_page(60*20)(IndexView.as_view()), name="index"),#缓存页面
     url(r"^$", IndexView.as_view(), name="index"),
     url(
@@ -52,26 +50,25 @@ urlpatterns = [
     url(r"^comment/$", CommentView.as_view(), name="comment"),
 ]
 
+# 后台管理系统
 urlpatterns += [
+                   url(r"^admin/", admin.site.urls),
+                   url(r"xadmin/", include(xadmin.site.urls)),
+
+                   # 自动补全
                    url(
                        r"^category-autocomplete/$",
                        CategoryAutocomplete.as_view(),
                        name="category-autocomplete",
                    ),
                    url(r"^tag-autocomplete/$", TagAutocomplete.as_view(), name="tag-autocomplete"),
+
+                   # 文本编辑器
                    url(r"^ckeditor/", include("ckeditor_uploader.urls")),
                    # 静态资源访问
                ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
-router = DefaultRouter()
-router.register(r"post", PostViewSet, base_name="api-post")
-router.register(r"category", CategoryViewSet, base_name="api-category")
-router.register(r"tag", TagViewSet, base_name="api-tag")
-urlpatterns += [
-    url(r"^api/docs/", include_docs_urls(title="shiqinying's blog apis")),
-    url(r"^api/", include(router.urls)),
-]
-
+# 性能分析toolbar和silk
 if settings.DEBUG:
     import debug_toolbar
 
@@ -80,3 +77,12 @@ if settings.DEBUG:
         url(r'^silk/', include('silk.urls', namespace='silk')),
     ]
 
+# restful api
+router = DefaultRouter()
+router.register(r"post", PostViewSet, base_name="api-post")
+router.register(r"category", CategoryViewSet, base_name="api-category")
+router.register(r"tag", TagViewSet, base_name="api-tag")
+urlpatterns += [
+    url(r"^api/docs/", include_docs_urls(title="shiqinying's blog apis")),
+    url(r"^api/", include(router.urls)),
+]

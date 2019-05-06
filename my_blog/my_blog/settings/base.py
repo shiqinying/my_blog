@@ -24,7 +24,7 @@ SECRET_KEY = '-4y8z+)f#z%v4^fm_hdm1l6gj(&%-&4qe&0y=-6+t8%#&_9gx_'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'comment',
     'my_blog',
 
+    # 后台管理系统
     'xadmin',
     'crispy_forms',
 
@@ -57,8 +58,8 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
-
-    'blog.middelware.user_id.UserIDMiddleware',
+    # 访客标记中间件
+    'blog.middleware.user_id.UserIDMiddleware',
 
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -67,14 +68,18 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
 ]
 
 ROOT_URLCONF = 'my_blog.urls'
 
+# 主题配置
+THEME = 'bootstrap'
+
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR, 'themes', THEME, 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -134,6 +139,10 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
 STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static_files/')
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, 'themes', THEME, 'static')
+]
 
 # xadmin配置
 XADMIN_TITLE = '史秦英的管理后台'
@@ -149,13 +158,28 @@ CKEDITOR_CONFIGS = {
         'extraPlugins': 'codesnippet'  # 配置代码插件
     }
 }
-MEDIA_URL = '/medai/'
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 CKEDITOR_UPLOAD_PATH = 'article_images'
 
-#django-rest-framework
+# django-rest-framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [],
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
     'PAGE_SIZE': 2,
+}
+
+# 配置缓存系统
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'TIMEOUT': 300,
+        'OPTIONS': {
+            # 'PASSWORD': '<对应密码>',
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient',
+            'PARSER_CLASS': 'redis.connection.HiredisParser',
+        },
+        'CONNECTION_POOL_CLASS': 'redis.connection.BlockingConnectionPool',
+    }
 }
