@@ -43,7 +43,7 @@ class TagView(IndexView):
         context = super().get_context_data(**kwargs)
         tag_id = self.kwargs.get("tag_id")
         tag = get_object_or_404(Tag, pk=tag_id)
-        context.update({"category": tag})
+        context.update({"tag": tag})
         return context
 
     def get_queryset(self):
