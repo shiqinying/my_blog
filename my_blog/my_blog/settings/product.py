@@ -2,7 +2,8 @@ from .base import *  # NOQA
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['47.52.238.179']
+ALLOWED_HOSTS = ['47.52.238.179']  # 限定ip会造成域名访问400错误
+ALLOWED_HOSTS = ['*']
 
 DATABASES = {
     'default': {
@@ -16,4 +17,3 @@ DATABASES = {
         'OPTIONS': {'charset': 'utf8mb4'}
     }
 }
-
