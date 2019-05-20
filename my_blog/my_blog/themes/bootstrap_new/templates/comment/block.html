@@ -1,0 +1,27 @@
+<!-- Comments Form -->
+<div class="card my-4">
+    <h5 class="card-header">游客留言:</h5>
+    <div class="card-body">
+        <form action="{% url 'comment' %}" method="POST">
+            {% csrf_token %}
+            <input name="target" type="hidden" value="{{ target }}"/>
+            {{ comment_form }}
+            <button type="submit" class="btn btn-primary mt-2">提交</button>
+        </form>
+
+    </div>
+</div>
+
+<!-- 评论列表 -->
+{% for comment in comment_list %}
+    <div class="media mb-4">
+        <img class="d-flex mr-3 rounded-circle" src="http://placehold.it/50x50" alt="">
+        <div class="media-body">
+            <h5 class="mt-0"><a href="{{ comment.website }}">{{ comment.nickname }}</a>
+                <span>{{ comment.created_time }}</span></h5>
+            {% autoescape off %}
+                {{ comment.content }}
+            {% endautoescape %}
+        </div>
+    </div>
+{% endfor %}

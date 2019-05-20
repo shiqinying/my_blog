@@ -75,7 +75,7 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'my_blog.urls'
 
 # 主题配置
-THEME = 'bootstrap'
+THEME = 'bootstrap_new'
 
 TEMPLATES = [
     {

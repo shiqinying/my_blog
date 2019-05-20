@@ -1,0 +1,40 @@
+{% extends "./base.html" %}
+{% load comment_block %}
+{% block title %} {{ post.title }} {% endblock %}
+
+{% block custom_head %}
+    <link href="http://cdn.bootcss.com/highlight.js/8.0/styles/monokai_sublime.min.css" rel="stylesheet">
+    <script src="http://cdn.bootcss.com/highlight.js/8.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+{% endblock %}
+
+{% block content %}
+    {% if post %}
+        <!-- Title -->
+        <h1 class="mt-4">{{ post.title }}</h1>
+
+        <div>
+            <span>分类:<a href="{% url 'category-list' post.category_id %}">{{ post.category.name }}</a></span>
+            <span>作者:<a href="{% url 'author' post.owner_id %}">{{ post.owner.username }}</a></span>
+            <span>创建时间:{{ post.created_time }}</span>
+        </div>
+
+        <hr>
+
+        <!-- Preview Image -->
+        <img class="img-fluid rounded" src="http://placehold.it/900x300" alt="">
+
+        <hr>
+
+        <!-- Post Content -->
+        <p>
+            {% autoescape off %}
+                {{ post.content_html }}
+            {% endautoescape %}
+        </p>
+
+        <hr>
+    {% endif %}
+
+    {% comment_block request.path %}
+{% endblock %}
