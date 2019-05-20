@@ -86,3 +86,7 @@ urlpatterns += [
     url(r"^api/docs/", include_docs_urls(title="shiqinying's blog apis")),
     url(r"^api/", include(router.urls)),
 ]
+
+# allauth
+
+urlpatterns += [url(r'^accounts/', include('allauth.urls')), ]
