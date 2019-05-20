@@ -59,6 +59,12 @@ class Tag(models.Model):
     def __str__(self):
         return self.name
 
+    @classmethod
+    def get_tags(cls):
+        return {
+            'tags': cls.objects.filter(status=cls.STATUS_NORMAL)
+        }
+
 
 class Post(models.Model):
     STATUS_NORMAL = 1
@@ -131,4 +137,3 @@ class Post(models.Model):
     @classmethod
     def hot_posts(cls):
         return cls.objects.filter(status=cls.STATUS_NORMAL).order_by('-pv').only('title', 'id')
-

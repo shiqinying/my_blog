@@ -14,6 +14,7 @@ class CommonViewMixin:
         context = super().get_context_data(**kwargs)
         context.update({"sidebars": SideBar.get_all()})
         context.update(Category.get_navs())
+        context.update(Tag.get_tags())
         return context
 
 
