@@ -29,6 +29,7 @@ class PostAdminForm(forms.ModelForm):
         fields = (
             "category",
             "tag",
+            "image",
             "desc",
             "title",
             "is_md",
