@@ -17,3 +17,8 @@
  sudo apt-get install python3.6-dev libmysqlclient-dev
 
 
+5,阿里云服务器不支持25端口，邮箱服务用465端口
+
+
+6，uwsgi 最大进程数视内存和cpu大小而定，阿里云突发性能服务器开10个进程会很卡
+
